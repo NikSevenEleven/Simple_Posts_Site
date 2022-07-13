@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class MyPlaceController extends Controller
+class ContactController extends Controller
 {
     public function index()
     {
-        return 'Index!';
+        return view('contacts');
     }
+
+
 }
