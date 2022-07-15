@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/posts', 'PostController@index')->name('post.index');
-
 Route::get('/posts/create','PostController@create');
+Route::post('/posts','PostController@store');
+
 Route::get('/posts/update','PostController@update');
 Route::get('/posts/delete','PostController@delete');
 Route::get('/posts/first_or_create','PostController@firstOrCreate');

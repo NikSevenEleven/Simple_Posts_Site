@@ -10,41 +10,12 @@ class PostController extends Controller
     public function index()
     {
         $posts=Post::all();
-        return view('posts', compact('posts'));
+        return view('post.index', compact('posts'));
     }
 
     public function create()
     {
-        $postsArr = [
-            [
-                'xxx'=>'hello',
-                'yyy'=>'www',
-                'zzz'=>'www',
-                'qqq'=>'33',
-            ],
-            [
-                'title'=>'hello123',
-                'content'=>'www',
-                'image'=>'www',
-                'likes'=>'33',
-            ],
-            [
-                'xxx'=>'hello',
-                'yyy'=>'www',
-                'zzz'=>'www',
-                'qqq'=>'33',
-            ],
-        ];
-            foreach ($postsArr as $post){
-
-                Post::create([
-                   'title'=>$post['xxx'],
-                    'content'=>$post['yyy'],
-                    'image'=>$post['zzz'],
-                    'likes'=>$post['qqq'],
-                ]);
-dd('end');
-            }
+        return view('post.create');
 
     }
 
