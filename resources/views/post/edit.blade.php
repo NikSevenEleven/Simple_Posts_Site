@@ -20,6 +20,16 @@
         <div class="col-1">
         <button type="submit" class="btn btn-primary">update</button>
         </div>
+        <div class="col-12">
+            <label for="categoru" class="form-label">Category</label>
+            <select class="form-select" aria-label="Default select example" id="category" name="category_id">
+                @foreach($categories as $category)
+                    <option
+                        {{$category->id === $post->category->id ? 'selected':''}}
+                        value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach
+            </select>
+        </div>
     </form>
     <div>
         <a href="{{route('post.index')}}" class="btn btn-primary mt-1">back</a>
