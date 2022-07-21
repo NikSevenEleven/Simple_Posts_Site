@@ -17,9 +17,6 @@
             <label for="image" class="form-label">Image</label>
             <input type="text" name="image" class="form-control" id="image" placeholder="Image"value="{{$post->image}}">
         </div>
-        <div class="col-1">
-        <button type="submit" class="btn btn-primary">update</button>
-        </div>
         <div class="col-12">
             <label for="categoru" class="form-label">Category</label>
             <select class="form-select" aria-label="Default select example" id="category" name="category_id">
@@ -29,6 +26,21 @@
                         value="{{$category->id}}">{{$category->title}}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="form-group">
+            <label for="tags" class="form-label">Tags</label>
+            <select  class="form-select" multiple aria-label="multiple select example" id="tags" name="tags[]">
+                @foreach($tags as $tag)
+                    <option
+                        @foreach($post->tags as $postTag)
+                            {{$tag->id === $postTag->id ? 'selected':''}}
+                        @endforeach
+                        value="{{$tag->id}}">{{$tag->title}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-1">
+            <button type="submit" class="btn btn-primary">update</button>
         </div>
     </form>
     <div>
