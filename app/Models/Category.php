@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $guarded=false;
 
     //У одной категории много постов
     public function posts()
