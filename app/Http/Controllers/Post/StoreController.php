@@ -3,26 +3,17 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $data=request()->validate([
-            'title'=>'required|string',
-            'content'=>'string',
-            'image'=>'string',
-            'category_id'=>'',
-            'tags'=>'',
-        ]);
-        $tags=$data['tags'];
-        unset($data['tags']);
+        $data= $request->validated();
 
-        $post=Post::create($data);
+        $this->service->store($data);
 
-        //tags() из модели через отношения
-        $post->tags()->attach($tags);
 
         return redirect()->route('post.index');
     }
