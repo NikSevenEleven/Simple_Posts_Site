@@ -8,6 +8,10 @@
         @endforeach
     </div>
     <div>
-        <a href="{{route('post.create')}}" class="btn btn-success">add</a>
+        <a href="{{route('post.create')}}" class="btn btn-success mt-1">add</a>
+    </div>
+
+    <div class="mt-3">
+        {{$posts->links()}}
     </div>
 @endsection
