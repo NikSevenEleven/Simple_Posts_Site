@@ -12,6 +12,6 @@
     </div>
 
     <div class="mt-3">
-        {{$posts->links()}}
+        {{$posts->withQueryString()->links()}}
     </div>
 @endsection
