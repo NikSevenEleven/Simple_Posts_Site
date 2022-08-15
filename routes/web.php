@@ -23,6 +23,19 @@ Route::group(['namespace'=>'Post'], function(){
     Route::delete('/posts{post}','DestroyController')->name('post.delete');
 });
 
+Route::group(['namespace'=>'Admin','prefix'=>'admin'], function(){
+
+    Route::group(['namespace'=>'Post'], function(){
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+        Route::get('/post/create','CreateController')->name('admin.post.create');
+        Route::post('/posts','StoreController')->name('admin.post.store');
+        Route::get('/post/{post}','ShowController')->name('admin.post.show');
+        Route::get('/post/{post}/edit','EditController')->name('admin.post.edit');
+        Route::patch('/post{post}','UpdateController')->name('admin.post.update');
+        Route::delete('/post{post}','DestroyController')->name('admin.post.delete');
+        });
+
+});
 
 
 Route::get('/posts/update','PostController@update');
@@ -31,6 +44,6 @@ Route::get('/posts/first_or_create','PostController@firstOrCreate');
 Route::get('/posts/update_or_create','PostController@updateOrCreate');
 
 
-Route::get('/main', 'MainController@index')->name('main.index');;
-Route::get('/contact', 'ContactController@index')->name('contact.index');;
+Route::get('/main', 'MainController@index')->name('main.index');
+Route::get('/contact', 'ContactController@index')->name('contact.index');
 Route::get('/about', 'AboutController@index')->name('about.index');
