@@ -22,7 +22,7 @@ Route::group(['namespace'=>'Post'], function(){
     Route::post('/posts','StoreController')->name('post.store');
     Route::get('/posts/{post}','ShowController')->name('post.show');
     Route::get('/posts/{post}/edit','EditController')->name('post.edit');
-    Route::patch('/posts{post}','UpdateController')->name('post.update');
+    Route::patch('/posts/{post}','UpdateController')->name('post.update');
     Route::delete('/posts{post}','DestroyController')->name('post.delete');
 });
 
@@ -54,3 +54,4 @@ Route::get('/about', 'AboutController@index')->name('about.index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

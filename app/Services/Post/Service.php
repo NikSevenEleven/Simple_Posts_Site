@@ -15,6 +15,8 @@ class Service
         //tags() из модели через отношения
 
         $post->tags()->attach($tags);
+
+        return $post;
     }
 
     public function update($post,$data)
@@ -23,6 +25,7 @@ class Service
         unset($data['tags']);
         $post->update($data);
         $post->tags()->sync($tags);
+        return $post->fresh();
     }
 
     public function destroy($post)

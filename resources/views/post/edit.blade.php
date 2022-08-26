@@ -4,7 +4,7 @@
 @section('content')
     <form class="row g-3" action="{{route('post.update', $post->id)}}" method="post">
         @csrf
-        @method('patch')
+        @method('PATCH')
         <div class="col-md-4">
             <label for="title" class="form-label">Title</label>
             <input type="text" name="title" class="form-control" id="title" placeholder="Title" value="{{$post->title}}">
