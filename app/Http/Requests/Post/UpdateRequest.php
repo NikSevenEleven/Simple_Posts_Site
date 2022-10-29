@@ -30,6 +30,7 @@ class UpdateRequest extends FormRequest
             'category_id'=>'',
             'likes'=>'',
             'tags'=>'',
+            'tags.*.title'=>'',
         ];
     }
 }
