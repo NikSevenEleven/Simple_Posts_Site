@@ -52,6 +52,7 @@ class Service
 
             $post->update($data);
             $post->tags()->sync($tagIds);
+            DB::commit();
         } catch (\Exception $exception){
             Db::rollBack();
             return $exception->getMessage();
